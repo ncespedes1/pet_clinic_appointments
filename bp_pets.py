@@ -9,7 +9,7 @@ def view_pets(current_user):
 
     pet_list = current_user.pets
 
-    print(f"--- {current_user.username}'s Pets ---")
+    print(f"--- {current_user.name}'s Pets ---")
     for pet in pet_list:
         print(f"\n --- Pet: {pet.id} ---")
         pet.display()

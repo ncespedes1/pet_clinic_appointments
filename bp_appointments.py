@@ -32,18 +32,17 @@ def create_appointment(current_user):
         pet.display()
     choice = input("Enter Pet Name: ")
 
-    pet = session.query(Pets).where(Pets.name.islike(choice), Pets.owner_id==current_user.id).first()
+    pet = session.query(Pets).where(Pets.name.ilike(choice), Pets.owner_id==current_user.id).first()
     if pet:
-        print(f"Who do you wish to see {pet.name}")
+        print(f"Who do you wish to see {pet.name}?")
         all_vets = session.query(Vets).all()
         for vet in all_vets:
-            print
             vet.display()
-        vet_name = input("Enter the Vet name: ")
-        vet = session.query(Vets).where(Vets.name.islike(vet_name)).first()
+        vet_name = input("\nEnter the Vet name: ")
+        vet = session.query(Vets).where(Vets.name.ilike(vet_name)).first()
         if vet:
-            appointment_date = input(f"When would you like {pet.name} to see {vet.name}? Please use (YYYY-MM-DD) format.")
-            notes = input(f"What's going on with {pet.name}?")
+            appointment_date = input(f"When would you like {pet.name} to see {vet.name}? Please use (YYYY-MM-DD) format. ")
+            notes = input(f"What's going on with {pet.name}? ")
             date_obj = datetime.strptime(appointment_date, date_format)
 
             new_apt = Appointments(pet_id=pet.id, veterinarian_id = vet.id, appointment_date = date_obj, notes = notes)
