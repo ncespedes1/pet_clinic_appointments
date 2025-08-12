@@ -86,12 +86,12 @@ class Appointments(Base):
     pet: Mapped["Pets"] = relationship("Pets", back_populates="appointments")
     vet: Mapped["Vets"] = relationship("Vets", back_populates="appointments")
     
-def display(self):
-    print("Appointment ID: ", self.id)
-    print("Date: ", self.appointment_date)
-    print("Vet: ", self.vet.name)
-    print("Notes: ", self.notes)
-    print("Status: ", self.status)
+    def display(self):
+        print("Appointment ID: ", self.id)
+        print("Date: ", self.appointment_date)
+        print("Vet: ", self.vet.name)
+        print("Notes: ", self.notes)
+        print("Status: ", self.status)
 
 
 

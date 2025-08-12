@@ -115,6 +115,7 @@ def main():
         1.) Manage Profile
         2.) My Pets
         3.) My Appointments
+        4.) Exit
         """)
             choice = input("choose 1-3: ")
             if choice == '1':
@@ -123,6 +124,8 @@ def main():
                 pets_menu(current_user)
             elif choice == '3':
                 appointments_menu(current_user)
+            elif choice == '4':
+                break
             else:
                 print("Invalid Selection.")
 

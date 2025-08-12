@@ -79,7 +79,7 @@ def reschedule_appointment(current_user):
     choice = input("Select appointment by ID: ")
     appointment = session.get(Appointments, choice)
     if appointment and appointment.pet.owner_id == current_user.id:
-        new_date = input("Enter new date: (YYYY_MM_DD)")
+        new_date = input("Enter new date: (YYYY-MM-DD)")
         new_date = datetime.strptime(new_date, date_format)
         appointment.appointment_date = new_date
         session.commit()
